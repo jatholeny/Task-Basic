@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="ScrumApp">
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href="/stylesheets/fonts/stylesheet.css"/>
+    <link rel='stylesheet' href="/stylesheets/header.css"/>
+    <link rel='stylesheet' href='/stylesheets/menu_new.css' />
+    <link rel='stylesheet' href="/stylesheets/base.css"/>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css">
+    <link rel="stylesheet" href="/stylesheets/user.css">
+    <link rel="stylesheet" href="/stylesheets/tasks.css">
+    <link rel="stylesheet" href="/stylesheets/calendar.css">
+    <link rel="stylesheet" href="/stylesheets/assignment.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.6.0/angular-material-icons.min.js"></script>
+    <script src="javascripts/service.js"></script>
+  </head>
+  <body>
+  <header>
+    <div class="brand">
+        <h1>  Go-LiveLabs  <small>Task Assignment Portal</small> </h1>
+    </div>
+  </header>
+  <section class="clearfix main" id="popupContainer">
+        <div class="menu clearfix">
+          <ul id="menu-v">
+            <li id="user"><a href="" class="arrow">User</a>
+              <ul id="user_sub" class="sub">
+                <li><a ui-sref="register">Create User</a></li>
+                <li><a ui-sref="searchUser">Search User</a></li>
+              </ul>
+            </li>
+
+            <li id="task"><a href="" class="arrow">Task</a>
+              <ul id="task_sub" class="sub">
+                <li><a ui-sref="createTask">Create Task</a></li>
+                <li><a ui-sref="searchTask">Manage Task</a></li>
+                <li><a ui-sref="calendar">Task Calendar</a></li>
+              </ul>
+            </li>
+
+            <li id="assign"><a href="" class="arrow">Assignment</a>
+              <ul id="assign_sub" class="sub">
+                <li><a ui-sref="createAssignment">Create</a></li>
+                <li><a ui-sref="searchAssignment">Search</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+      <div class="content" ui-view>
+      </div>
+
+  </section>
+</body>
+</html>

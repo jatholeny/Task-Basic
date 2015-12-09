@@ -1,0 +1,47 @@
+.calendar {
+    width: 1300px;
+    height: 700px;
+    border: 1px solid #cccccc;
+    overflow: scroll;
+    margin-left: 30px;
+    margin-top: 30px
+}
+
+.timebar {
+    position: absolute;
+    height: 20px;
+    background-color: rgba(92, 122, 56, 0.54);
+    z-index:1;
+    font-size: 15px;
+    white-space: nowrap;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.timebar:hover{
+    background-color: rgba(64, 113, 122, 0.76);
+}
+
+p.speech{
+    margin: 0;
+    position: absolute;
+    width: 150px;
+    height: 60px;
+    text-align: center;
+    background-color: #c9c9c9;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    display: none;
+    z-index: 2;
+}
+p.speech:before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 30px;
+    top: 60px;
+    border: 10px solid;
+    border-color: #c9c9c9 transparent transparent #c9c9c9;;
+}

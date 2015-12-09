@@ -1,0 +1,103 @@
+section > h1{text-align: center}
+#register_panel{
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding:35px 70px 35px 70px;
+    width:640px;
+    margin:auto;
+}
+/*.register > input{*/
+    /*display: block;*/
+    /*font-size: 15px;*/
+    /*width:500px;*/
+    /*height:40px;*/
+    /*padding: 0.35em 0.5em;*/
+    /*border: 1px solid #D6D6D6;*/
+    /*border-radius: 2px;*/
+    /*transition: all .25s;*/
+    /*color: #313131;*/
+/*}*/
+.create_form{
+    background-color: rgba(255, 255, 255, 0.26);
+    border-radius: 10%;
+    width:100%;
+    padding:20px;
+    height:100%;
+}
+.create{
+    margin:0;
+    width:500px;
+    padding: 0.35em 0.5em;
+    border-radius: 2px;
+    transition: all .25s;
+    color: #313131;
+}
+.create:focus{
+    background-color: white;
+}
+#userdata {
+    height:600px;
+    overflow: scroll;
+}
+#register_panel > button{
+    margin:10px 20%;
+    width: 60%;
+    padding: 0 15%;
+    text-align: center;
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #3c948b;
+    color: #fff;
+    border-radius: 10px;
+    font-weight: bold;
+
+}
+#register_panel > button:hover{
+    background-color: rgba(60, 148, 139, 0.49);
+    transition: all .25s;
+}
+.form_searchusers {
+    width: 100%;
+    padding:0 30% 0 30%;
+    margin-bottom: 20px;
+}
+.form_searchusers > input{
+    font-size: 15px;
+    width:60%;
+    margin-left: 2%;
+    height:40px;
+    padding: 0 15px;
+    border: 1px solid #D6D6D6;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 2px;
+    transition: all .25s;
+    color: #313131;
+}
+.form_searchusers  > input:focus{
+    background-color: white;
+}
+.form_searchusers > select,.form_searchusers > button{
+    width: 15%;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #3c948b;
+    color: #fff;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.form_searchusers > button:hover{
+    background-color: rgba(60, 148, 139, 0.49);
+    transition: all .25s;
+}
+#userdata table tr td input {
+    line-height: 100%;
+    width:100%;
+    height:100%;
+    font-size:medium;
+    text-align: center;
+    border:none;
+}

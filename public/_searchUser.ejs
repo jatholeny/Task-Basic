@@ -1,0 +1,40 @@
+<section>
+    <h1>Search user</h1>
+    <form class="form_searchusers">
+        <select name='search' ng-model="search.prop" ng-init="search.prop='all'">
+            <option value="all" selected>All</option>
+            <option value="username">Name</option>
+            <option value="email">Email</option>
+        </select>
+        <input class="normal" type="text" ng-model="search.value" placeholder="Search User">&nbsp;&nbsp;
+        <button ng-click="searchUser()">Search</button>
+    </form>
+    <div id= "userdata">
+        <table ng-class="{display:list,listhead:true,border:true}" ng-init="list=true">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Company</th>
+                <th>Organization</th>
+                <th>Department</th>
+                <th></th>
+            </tr>
+            <tr  ng-repeat="user in users"  ng-init="user.display = 'true'">
+                <td><input class="intable" ng-model="user.username" type="text" ng-disabled="user.display"></td>
+                <td><input class="intable" ng-model="user.email" type="text" ng-disabled="user.display"></td>
+                <td><input class="intable" ng-model="user.tel" type="text" ng-disabled="user.display"></td>
+                <td><input class="intable" ng-model="user.company" type="text" ng-disabled="user.display"></td>
+                <td><input class="intable" ng-model="user.organization" type="text" ng-disabled="user.display"></td>
+                <td><input class="intable" ng-model="user.department" type="text" ng-disabled="user.display"></td>
+                <td>
+                    <md-button class="md-raised" ng-click="edit(user)" ng-show="user.display">Edit</md-button>
+                    <md-button class="md-raised md-primary" ng-click="update(user)" ng-show="!user.display">Update</md-button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+
+

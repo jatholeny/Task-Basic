@@ -1,0 +1,49 @@
+<section>
+    <h1>Create User</h1>
+    <div id="register_panel">
+        <!--<form class="register">-->
+            <!--<input class="create" type="text" ng-model="user.username" placeholder="Username*" required><br>-->
+            <!--<input class="create" type="email" ng-model="user.email" placeholder="Email*" required><br>-->
+            <!--<input class="create"  type="tel" ng-model="user.tel" placeholder="Phonenumber*" required><br>-->
+            <!--<input class="create"type="text" ng-model="user.company" placeholder="Company"><br>-->
+            <!--<input class="create"  type="text" ng-model="user.organization" placeholder="Organization"><br>-->
+            <!--<input class="create" type="text" ng-model="user.department" placeholder="Department"><br>-->
+        <!--</form>-->
+        <div class="register" layout="column" ng-cloak>
+            <br/>
+            <md-content layout-padding class="autoScroll create_form">
+                <md-input-container class="md-icon-float md-block">
+                    <label>Name</label>
+                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                    <input class="create" ng-model="user.username" type="text" ng-required="true">
+                </md-input-container>
+                <md-input-container md-no-float class="md-icon-float md-block">
+                    <label>Phone Number</label>
+                    <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                    <input class="create" ng-model="user.tel" type="text" >
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block">
+                    <label>Email</label>
+                    <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+                    <input class="create" ng-model="user.email" type="email" ng-required="true">
+                </md-input-container>
+                <md-input-container md-no-float class="md-icon-float md-block">
+                    <label>Company</label>
+                    <md-icon md-svg-src="img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
+                    <input class="create" ng-model="user.company" type="text" >
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block">
+                    <label>Department</label>
+                    <md-icon md-svg-src="img/icons/ic_card_giftcard_24px.svg"></md-icon>
+                    <input class="create" ng-model="user.department" type="text" >
+                </md-input-container>
+            </md-content>
+        </div>
+        <div>
+
+            <small>{{message}}</small>
+        </div>
+        <button ng-click="register(user)">REGISTER</button>
+    </div>
+</section>
+

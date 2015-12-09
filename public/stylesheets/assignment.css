@@ -1,0 +1,135 @@
+div#assignment_create_panel{
+    height: auto;
+    width:80%;
+    margin:0 20%;
+}
+div#assignment_create_panel::after{
+    clear:both;
+    content:"";
+    display:block;
+}
+.assignment{
+    width: 30%;
+    float: left;
+    text-align: center;
+    margin: 0 1%;
+}
+.assignment .width{
+    width: 33.3%;
+}
+div.assignment table{
+    margin:33px 0;
+}
+.options{
+    height:500px;
+    overflow: scroll;
+
+}
+#assignit, .assignment > button {
+    background-color: #3c948b;
+    height:35px;
+    width:100%;
+    color:white;
+    font-size: 50%;
+    font-weight: bold;
+}
+#assignit {
+    margin:0 30% 1% 30%;
+    width:40%;
+}
+
+#assignit:hover, .assignment > button:hover{
+    background-color: rgba(60, 148, 139, 0.49);
+    transition: all .25s;
+}
+input.intable{
+    border: none;
+    width:80%;
+    line-height: 15px;
+}
+p.intable{
+    display:inline-block;
+    width:100%;
+    margin:10px 0;
+    padding:0 5px;
+    text-align: left;
+    font-size: 0.9em;
+}
+.md-label{
+    width:100%;
+ }
+li:hover{
+    background-color: rgba(40, 101, 177, 0.4);
+}
+.form_searchassignments {
+    width: 100%;
+    padding:0 8% 0 8%;
+    margin-bottom: 20px;
+}
+.form_searchassignments > input {
+    font-size: 15px;
+    width:10%;
+    height:40px;
+    padding: 0 15px;
+    border: 1px solid #D6D6D6;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 2px;
+    transition: all .5s;
+    font-family: MuseoSans, serif;
+    color: #313131;
+}
+.form_searchtasks  > input:focus{
+    background-color: white;
+}
+
+.form_searchassignments > button{
+    width: 10%;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #3c948b;
+    color: #fff;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.form_searchassignments > button:hover{
+    background-color: rgba(60, 148, 139, 0.49);
+    transition: all .25s;
+}
+div#assignmentdata {
+    height:600px;
+    overflow: scroll;
+}
+table.assignmenttable  td:nth-of-type(1),table.assignmenttable  th:nth-of-type(1){
+    width:150px;
+}
+table.assignmenttable td:nth-of-type(2),table.assignmenttable  th:nth-of-type(2){
+    width:150px;
+}
+table.assignmenttable  td:nth-of-type(3),table.assignmenttable  th:nth-of-type(3){
+    width:600px;
+}
+table.assignmenttable  td:nth-of-type(4),table.assignmenttable  th:nth-of-type(4){
+    width:100px;
+}
+table.assignmenttable  td:nth-of-type(6),table.assignmenttable  th:nth-of-type(6){
+    width:250px;
+}
+
+.assignmenttable input {
+    line-height: 100%;
+    width:100%;
+    height:100%;
+    font-size:medium;
+    text-align: center;
+    border:none;
+}
+p.assignmentcontent_editable{
+    text-align: left;
+    margin:5px;
+    height:100%;
+    font-size:0.9em;
+    border:none;
+}

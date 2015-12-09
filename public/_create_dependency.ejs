@@ -1,0 +1,17 @@
+<section>
+    <h1 >
+        Create tasks successfully! Please add dependency if any.
+    </h1>
+    <div class="taskContent">
+        <ul>
+            <li ng-repeat="subTask in subTasks">
+                <span class="subtasks_dependency">{{subTask.description}}</span><div style="color: #00B7FF;">depends on
+                <select class="dependency" ng-model="subTask.dependency" ng-options="task.id as task.description for task in allSubTasks">
+                    <option value=""></option>
+                </select>
+                </div>
+            </li>
+        </ul>
+        <button ng-click="addDependency()">NEXT</button>
+    </div>
+</section>

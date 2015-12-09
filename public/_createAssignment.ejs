@@ -1,0 +1,59 @@
+<section>
+    <h1>Create new Assignment</h1>
+    <hr>
+    <button id= "assignit" ng-click="assignTask()" ng-show="tasks && users">ASSIGN IT</button>
+    <div id="assignment_create_panel">
+        <div class="assignment">
+            <button ng-click="getUser()">GET USERS</button>
+            <fieldset >
+                <legend>User</legend>
+                <ul class="options">
+                    <li ng-repeat="user in users" ng-init="user.checked=false">
+                        <input class="intable" type="text" ng-model="user.username" ng-disabled="true">
+                        <input name="user" value="true" type="radio" ng-model="user.checked">
+
+                    </li>
+                </ul>
+            </fieldset>
+        </div>
+        <div class="assignment" style="width: 40%">
+            <button ng-click="getTask()">GET TASKS</button>
+            <fieldset >
+                <legend>Task</legend>
+                <ul class="options">
+                    <li ng-repeat="task in tasks" ng-init="task.checked=false">
+                        <!--<input name='task' value="true" type="checkbox" ng-model="task.checked">-->
+                        <md-checkbox class="md-primary assigment_checkbox" ng-model="task.checked" aria-label="Checkbox">
+                            <p class="intable" ng-bind="task.description"></p>
+                        </md-checkbox>
+                    </li>
+                </ul>
+            </fieldset>
+        </div>
+
+
+
+        <!--<div class="assignment" style="width: 40%">-->
+            <!--<button ng-click="assignTask()">ASSIGN IT</button>-->
+            <!--<small>{{message}}</small>-->
+            <!--&lt;!&ndash;<table ng-class="{border:true}">&ndash;&gt;-->
+                <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<th class="width">Assigner</th>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<th class="width">Assignee</th>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<th class="width">Task</th>&ndash;&gt;-->
+                <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                <!--&lt;!&ndash;<tr ng-repeat="assignment in assignments | limitTo:8">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<input type="text" ng-model="assignment.assigner_id" ng-disabled="true">&ndash;&gt;-->
+                    <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<input type="text" ng-model="assignment.assignee_id" ng-disabled="true">&ndash;&gt;-->
+                    <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<input type="text" ng-model="assignment.task_id" ng-disabled="true">&ndash;&gt;-->
+                    <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;</table>&ndash;&gt;-->
+        <!--</div>-->
+    </div>
+</section>

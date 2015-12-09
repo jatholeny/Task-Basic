@@ -1,0 +1,11 @@
+<section>
+    <h1>Create new task</h1>
+    <div class="taskContent">
+        <label for="section" style="margin-right: 33px">Task:</label><input required class="create" type="text" name="section" placeholder="Task name" id="section" ng-model="task.section">
+        <a><img title="create sub task" class="plus" src="images/plus-button.png" ng-click="addSubTask()"></a>
+        <div id="subTask"></div>
+        <label for="creator">Creator:</label>&nbsp;&nbsp;<input required class="create"  type="text" name="Creator" placeholder="Creator" id="creator" ng-model="task.createdBy">
+        <small>{{message}}</small>
+        <button ng-click="save()">SAVE</button>
+    </div>
+</section>

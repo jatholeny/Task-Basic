@@ -1,0 +1,126 @@
+<section class="task_section">
+    <h1>Manage task</h1>
+    <form class="form_searchtasks">
+        <select name='search' ng-model="search.prop" ng-init="search.prop='all'">
+            <option value="all" >All</option>
+            <option value="createdBy">Created By</option>
+            <option value="description">Description</option>
+        </select>
+        <input class="normal" type="text" ng-model="search.value" placeholder="Search Tasks">&nbsp;&nbsp;
+        <button ng-click="searchTask()">Search</button>
+        <button ng-click="updateall()">Save All</button>
+    </form>
+    <dialog>{{message.message}}<br><button ng-click="closedialog()">Close</button></dialog>
+
+
+    <div  id="taskdata" ng-class="{display:list,listhead:true,border:true}" ng-init="list=true">
+        <table class="tasktable" style="margin-top: 20px;">
+            <tr>
+                <th>Task Id</th><th>Task Name</th><th>Created By</th><th>Dependency</th><th>Duration</th><th>Created Date</th><th></th>
+            </tr>
+        </table>
+        <table class="tasktable" ng-repeat="task in tasks" ng-if="task.parent_id == null" ng-init="subtasks=task.subtask">
+            <tr ng-dblclick="update($event,task)">
+                <td>
+                    <span ng-click="subtask_show=(subtask_show=='open'?'close':'open');"
+                          ng-init="subtask_show='close';icon={
+                    'close':'http://i1068.photobucket.com/albums/u443/egiroux1/matte-white-square-icon-alphanumeric-plus-sign-simple.png',
+                    'open':'http://i1068.photobucket.com/albums/u443/egiroux1/matte-white-square-icon-alphanumeric-minus-sign-simple.png'}">
+                        <img ng-if="subtasks.length !=0" ng-src="{{icon[subtask_show]}}" width="25px" height="25px">
+                    </span>
+                    {{task.id}}
+                </td>
+                <td><span class="taskcontent_editable">{{task.description}}</span></td>
+                <td>{{task.createdBy}}</td>
+                <td></td>
+                <td>{{task.duration}}</td>
+                <td>{{task.createdAt | date : format : 'MMM d, y h:mm:ss a'}}</td>
+                <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRMxdbsSRGa1DQcMRTA3khv-78I-1vj3b26vMyarWiKPBwrruV-A" width="25px" height="25px" ng-click="delete(task)"></td>
+
+            </tr>
+            <tr ng-dblclick="update($event,subtask)" class="show_animation" ng-repeat="subtask in subtasks" ng-show="subtask_show=='open'" >
+                <td>{{subtask.id}}</td><td><p class="taskcontent_editable"  ng-bind="subtask.description" ></p></td>
+                <td>{{subtask.createdBy}}</td><td>{{subtask.dependency}}</td>
+                <td><span ng-if="((subtask.duration | durationunits | date:'d')-1)!=0">{{(subtask.duration | durationunits | date:'d')-1}}d </span>
+                    <span ng-if="(subtask.duration | durationunits | date:'H')!=0">{{subtask.duration | durationunits | date:'H'}}h </span>
+                    <span ng-if="(subtask.duration | durationunits | date:'m')!=0">{{subtask.duration | durationunits | date:'m'}}m </span>
+                    <span ng-if="(subtask.duration | durationunits | date:'s')!=0">{{subtask.duration | durationunits | date:'s'}}s</span>
+                </td>
+                <td>{{subtask.createdAt | date : format : 'MMM d, y h:mm:ss a'}}</td>
+                <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRMxdbsSRGa1DQcMRTA3khv-78I-1vj3b26vMyarWiKPBwrruV-A"  width="25px" height="25px" ng-click="delete(subtask)"></td>
+            </tr>
+        </table>
+    </div>
+
+
+    <script type="text/ng-template" id="dialog1.tmpl.html">
+        <md-dialog ng-cloak>
+        <form>
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>Please wait...</h2>
+                    <span flex></span>
+                </div>
+            </md-toolbar>
+            <md-dialog-content style="max-width:800px;max-height:810px; ">
+                <div class="md-dialog-content">
+                    <h2>You want to delete.....</h2>
+                    <div style="text-align: center">
+                        Deleting...
+                        <md-progress-circular style="margin:auto" md-mode="indeterminate"></md-progress-circular>
+                    </div>
+                </div>
+            </md-dialog-content>
+        </form>
+        </md-dialog>
+    </script>
+    <script type="text/ng-template" id="dialog2.tmpl.html">
+        <md-dialog ng-cloak>
+            <form>
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>Message</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="cancel()"></md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content style="max-width:800px;max-height:810px; ">
+                    <div class="md-dialog-content">
+                        <h2>You want to delete.....?</h2>
+                        <div style="text-align: center">{{}}</div>
+                    </div>
+                </md-dialog-content>
+                <div class="md-actions" layout="row">
+                    <span flex></span>
+                    <md-button ng-click="cancel()" >Cancel</md-button>
+                    <md-button ng-click="doit()" style="margin-right:20px;" >Delete it</md-button>
+                </div>
+            </form>
+        </md-dialog>
+    </script>
+    <script type="text/ng-template" id="dialog3.tmpl.html">
+        <md-dialog  ng-cloak>
+            <form>
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>Message</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="cancel()"></md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content style="max-width:800px;max-height:810px; ">
+                    <div class="md-dialog-content">
+                        <h2>Delete Successful!</h2>
+                        <div style="text-align: center">{{}}</div>
+                    </div>
+                </md-dialog-content>
+                <div class="md-actions" layout="row">
+                    <span flex></span>
+                    <md-button ng-click="cancel()" >Got it</md-button>
+                </div>
+            </form>
+        </md-dialog>
+    </script>
+</section>
+
+

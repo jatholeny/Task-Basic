@@ -1,0 +1,30 @@
+body ,html {
+    font: 200 1em 'montserratlight', 'Helvetica Neue', 'Segoe UI', 'Droid Sans', 'Helvetica';
+    background-color: #e6e6e6!important;
+}
+body,*{
+    box-sizing: border-box;
+}
+header {
+    margin-bottom: 20px;
+}
+div.brand {
+    background-color: #3c948b;
+    height : 80px;
+    margin-top: 20px;
+    padding: 1em 1.5em 1em 5em;
+    color : white;
+    font : 15px  'montserratlight', 'Helvetica Neue', 'Segoe UI', 'Droid Sans', 'Helvetica';
+}
+
+div.brand > h1 > small {
+    color: #89d7d8;
+}
+
+a {
+  color: #00B7FF;
+  cursor: pointer;
+}
+
+
+

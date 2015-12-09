@@ -1,0 +1,65 @@
+<section >
+    <h1>Search Assignment</h1>
+    <form class="form_searchassignments">
+        <label for="assigner">Assigner:</label>
+        <input class="normal" id='assigner' type='text' placeholder="Assigner" ng-model="searchby.assigner_id">
+        <label for="assignee">Assignee:</label>
+        <input class="normal" id='assignee' type='text'placeholder="Assignee" ng-model="searchby['users.username']">
+        <label for="task">Task:</label>
+        <input class="normal" id="task" type='text' placeholder="Task" ng-model="searchby['tasks.description']">
+        <label for="priority">Priority:</label>
+        <input class="normal" type='text' placeholder="Priority" ng-model="searchby.priority">
+        <label for="status">Status:</label>
+        <input class="normal" type='text' placeholder="Status" ng-model="searchby.status">
+        <button ng-click="makesearch(searchby)">search</button>
+    </form>
+    <div id="assignmentdata">
+        <table class="assignmenttable" ng-init="hide=true" ng-class="{display:hide,listhead:true}" >
+
+            <tr>
+                <th ng-click="sortType = 'assigner_id';sortReverse = !sortReverse">Assigner
+                    <span class="sortorder" ng-show="sortType === 'assigner_id'" ng-class="{reverse:sortReverse}"></span>
+                </th>
+                <th ng-click="sortType = 'assignee_id'; sortReverse = !sortReverse">Assignee
+                    <span class="sortorder" ng-show="sortType === 'assignee_id'" ng-class="{reverse:sortReverse}"></span>
+                </th>
+                <th ng-click="sortType = 'task_id';sortReverse = !sortReverse">Task
+                    <span class="sortorder" ng-show="sortType === 'task_id'" ng-class="{reverse:sortReverse}"></span>
+                </th>
+                <th ng-click="sortType = 'priority';sortReverse = !sortReverse">Priority
+                    <span class="sortorder" ng-show="sortType === 'priority'" ng-class="{reverse:sortReverse}"></span>
+                </th>
+                <th ng-click="sortType = 'status';sortReverse = !sortReverse">Status
+                    <span class="sortorder" ng-show="sortType === 'status'" ng-class="{reverse:sortReverse}"></span>
+                </th>
+                <th ng-click="sortType = 'comment';sortReverse = !sortReverse">Comment
+                    <span class="sortorder" ng-show="sortType === 'comment'" ng-class="{reverse:sortReverse}"></span>
+                </th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="eachresult in searchresult | filter:{assigner_id:searchby.assigner_id,
+        assignee_id:searchby['users.username'] , description:searchby['tasks.description'], priority:searchby.priority,
+        status:searchby.status,comment:search.comment} | orderBy:eachresult.createdAt:true" ng-init="eachresult.edit=false; ">
+                <!--status:searchby.status,comment:search.comment} | orderBy:sortType:sortReverse" ng-init="eachresult.edit=false; ">-->
+
+                <td><input class="intable" type="text" ng-model="eachresult.assigner_id" ng-disabled="!eachresult.edit"></td>
+                <td><input class="intable" type="text" ng-model="eachresult.username"  ng-disabled="!eachresult.edit"></td>
+                <td><p class="assignmentcontent_editable" ng-bind="eachresult.description"></p></td>
+                <!--<td><input class="intable" type="text" ng-model="eachresult.description" ng-disabled="!eachresult.edit"></td>-->
+                <td><input class="intable" type="text" ng-model="eachresult.priority" ng-disabled="!eachresult.edit"></td>
+                <td><md-select ng-model="eachresult.status" ng-disabled="!eachresult.edit" style="margin:0">
+                        <md-option ng-repeat="status in statuslist" value="{{status}}">{{status}}</md-option>
+                    </md-select>
+                        <!--<input class="intable" type="text" ng-model="eachresult.status"  ng-disabled="!eachresult.edit"></td>-->
+                <td><input class="intable" type="text" ng-model="eachresult.comment" ng-disabled="!eachresult.edit"></td>
+                <td>
+                    <md-button class="md-raised" ng-click="eachresult.edit = true" ng-hide="eachresult.edit">Edit</md-button>
+                    <md-button class="md-raised md-primary" ng-click="update(eachresult); eachresult.edit = false" ng-show="eachresult.edit">Update</md-button>
+                    <!--<button ng-click="eachresult.edit = true" ng-hide="eachresult.edit">Edit</button>-->
+                    <!--<button ng-click="update(eachresult); eachresult.edit = false" ng-show="eachresult.edit">Update</button>-->
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</section>

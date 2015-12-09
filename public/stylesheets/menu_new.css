@@ -1,0 +1,65 @@
+#menu-v li, #menu-v a {zoom:1;} /* Hacks for IE6, IE7 */
+#menu-v, #menu-v ul{
+    position: relative;
+}
+
+
+#menu-v > li
+{
+    margin: 0;
+    padding-top: 10px;
+    border-bottom: 1px solid #ccc;
+    background: radial-gradient(rgb(6, 166, 147), #3c948b);
+
+}
+
+#menu-v .sub li{
+    margin: 0;
+    padding: 10px;
+}
+
+#menu-v a{
+    display: block;
+    text-decoration: none;
+}
+
+#menu-v>li>a
+{
+    color: white;
+    line-height:26px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+
+}
+
+#menu-v ul.sub li a{
+    font-size: 14px;
+    color: black;
+    line-height: 45px;
+    padding-left: 30px;
+}
+
+#menu-v ul.sub li {
+    background-color: rgba(255,255,255,0.7);
+    border-top: 1px solid #dddddd;
+    padding:0;
+}
+
+.sub{
+    display:none
+}
+
+#menu-v>li:hover a{
+    font-size: 110%;
+}
+
+#menu-v>li:hover .sub{
+    display:block;
+}
+
+
+#menu-v>li:hover .sub>li:hover{
+    background-color: #0ca7d9;
+    transition:background-color 1s;
+}
