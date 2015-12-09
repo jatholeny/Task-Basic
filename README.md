@@ -1,4 +1,3 @@
-IP: 192.168.1.19:3000
 
 views/index.ejs:  home page with different states
 
