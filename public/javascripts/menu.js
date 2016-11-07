@@ -1,6 +1,4 @@
-/**
- * Created by allenbklj on 8/28/15.
- */
+
 var mcVM_options={menuId:"menu-v",alignWithMainMenu:true};
 /* www.menucool.com/vertical/vertical-menu.*/
 init_v_menu(mcVM_options);

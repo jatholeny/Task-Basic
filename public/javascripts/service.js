@@ -1,6 +1,3 @@
-/**
- * Created by allenbklj on 8/28/15.
- */
 
 var myApp = angular.module('ScrumApp',['ui.router','ngAnimate','ngMaterial','ngMdIcons']);
 
